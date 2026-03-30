@@ -54,6 +54,7 @@ function App() {
               primary: '#d946ef',
               secondary: '#ffffff',
             },
+            
             style: {
               background: 'linear-gradient(135deg, rgba(217, 70, 239, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%)',
               border: '1px solid rgba(217, 70, 239, 0.3)',
@@ -64,6 +65,7 @@ function App() {
       
       <Router>
         <Layout>
+
           <AnimatePresence mode="wait">
             <Routes>
               <Route path="/" element={

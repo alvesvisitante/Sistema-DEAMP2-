@@ -66,6 +66,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     localStorage.setItem(key, JSON.stringify(ids))
   }
 
+ //Parte de notificações
   const idsLidos = useMemo(() => getIdsStorage(chaveNotificacoesLidas), [notificationsOpen, notificacoes])
   const notificacoesNaoLidas = notificacoes.filter((item) => {
     const id = getIntimacaoId(item)
