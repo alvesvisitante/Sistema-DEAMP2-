@@ -1,0 +1,103 @@
+
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "title": "Intimacao",
+    "description": "Intimações policiais da DEAM Pedro II",
+    "additionalProperties": true,
+    "required": ["numero_intimacao", "agente_id", "intimado_nome", "intimado_cpf", "motivo", "data_intimacao", "status", "created_at"],
+    "properties": {
+      "numero_intimacao": {
+        "bsonType": "string",
+        "description": "Número único da intimação"
+      },
+      "agente_id": {
+        "bsonType": "string", 
+        "description": "ID do agente responsável"
+      },
+      "intimado_nome": {
+        "bsonType": "string",
+        "minLength": 3,
+        "description": "Nome completo do intimado"
+      },
+      "intimado_cpf": {
+        "bsonType": "string",
+        "pattern": "^[0-9]{11}$",
+        "description": "CPF do intimado (apenas números)"
+      },
+      "intimado_endereco": {
+        "bsonType": "string",
+        "description": "Endereço completo do intimado"
+      },
+      "intimado_telefone": {
+        "bsonType": "string",
+        "description": "Telefone do intimado"
+      },
+      "motivo": {
+        "bsonType": "string",
+        "enum": ["depoimento", "audiencia", "reconhecimento", "outros"],
+        "description": "Motivo da intimação"
+      },
+      "descricao_motivo": {
+        "bsonType": "string",
+        "description": "Descrição detalhada do motivo"
+      },
+      "data_intimacao": {
+        "bsonType": "string",
+        "title": "datetime",
+        "description": "Data/hora da intimação"
+      },
+      "data_comparecimento": {
+        "bsonType": "string",
+        "title": "datetime", 
+        "description": "Data/hora para comparecimento"
+      },
+      "local_comparecimento": {
+        "bsonType": "string",
+        "description": "Local onde deve comparecer"
+      },
+      "status": {
+        "bsonType": "string",
+        "enum": ["pendente", "entregue", "nao_localizado", "recusada", "cumprida"],
+        "description": "Status da intimação"
+      },
+      "observacoes": {
+        "bsonType": "string",
+        "description": "Observações gerais"
+      },
+      "documentos": {
+        "bsonType": "array",
+        "description": "URLs dos documentos anexos",
+        "items": {
+          "bsonType": "string"
+        }
+      },
+      "data_entrega": {
+        "bsonType": "string",
+        "title": "datetime",
+        "description": "Data/hora da entrega"
+      },
+      "responsavel_recebimento": {
+        "bsonType": "string",
+        "description": "Nome de quem recebeu a intimação"
+      },
+      "created_at": {
+        "bsonType": "string",
+        "title": "datetime",
+        "description": "Data de criação do registro"
+      },
+      "updated_at": {
+        "bsonType": "string", 
+        "title": "datetime",
+        "description": "Data da última atualização"
+      },
+      "start": {
+      "dev": "vite",
+      "start": "vite",
+      "build": "vite build",
+      "preview": "vite preview"
+    }
+
+    }
+  }
+}

@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+model Agente {
+  id            String      @id @default(uuid())
+  nome          String
+  matricula     String?     @unique
+  cargo         String?
+  cpf           String?
+  telefone      String?
+  email         String?
+  status        String      @default("ativo")
+  data_admissao DateTime?
+  createdAt     DateTime    @default(now())
+  intimacoes    Intimacao[]
+}
+
+model Intimacao {
+  id                   String    @id @default(uuid())
+  numero_intimacao     String?   @unique
+  intimado_nome        String
+  intimado_cpf         String?
+  intimado_endereco    String?
+  intimado_telefone    String?
+  motivo               String
+  descricao_motivo     String?
+  data_intimacao       DateTime
+  data_comparecimento  DateTime?
+  local_comparecimento String?
+  observacoes          String?
+  status               String    @default("pendente")
+  documentos           Json?
+  createdAt            DateTime  @default(now())
+
+  agenteId             String?
+  agente               Agente?   @relation(fields: [agenteId], references: [id])
+}

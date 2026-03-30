@@ -1,0 +1,68 @@
+
+{
+
+  "$jsonSchema": {
+    "bsonType": "object",
+    "title": "Agente",
+    "description": "Agentes da DEAM Pedro II",
+    "additionalProperties": true,
+    "required": ["matricula", "nome", "cargo", "status", "created_at"],
+    "properties": {
+      "matricula": {
+        "bsonType": "string",
+        "description": "Matrícula do agente"
+
+      },
+      "nome": {
+        "bsonType": "string",
+        "minLength": 3,
+        "description": "Nome completo do agente"
+      },
+      "cargo": {
+        "bsonType": "string",
+        "enum": ["delegado", "escrivao", "investigador", "agente"],
+        "description": "Cargo do agente"
+      },
+      "cpf": {
+        "bsonType": "string",
+        "pattern": "^[0-9]{11}$",
+        "description": "CPF do agente"
+      },
+      "telefone": {
+        "bsonType": "string",
+        "description": "Telefone do agente"
+      },
+      "email": {
+        "bsonType": "string",
+        "description": "Email do agente"
+      },
+      "status": {
+        "bsonType": "string",
+        "enum": ["ativo", "inativo", "licenca", "ferias"],
+        "description": "Status do agente"
+      },
+      "data_admissao": {
+        "bsonType": "string",
+        "title": "datetime",
+        "description": "Data de admissão"
+      },
+      "created_at": {
+        "bsonType": "string",
+        "title": "datetime",
+        "description": "Data de criação do registro"
+      },
+      "updated_at": {
+        "bsonType": "string",
+        "title": "datetime",
+        "description": "Data da última atualização"
+      },
+      "start": {
+      "dev": "vite",
+      "start": "vite",
+      "build": "vite build",
+      "preview": "vite preview"
+    }
+
+    }
+  }
+}
